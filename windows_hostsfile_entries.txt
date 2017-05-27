@@ -1,0 +1,18 @@
+# Put these entries in your Windows (the host O.S) hosts file, e.g. C:\Windows\System32\drivers\etc\hosts
+127.0.0.1:8080                   localhost
+127.0.0.1:8080/phpmyadmin/       phpmyadmin.localhost
+127.0.0.1:8080                   server-default.localhost
+
+# Note: if you are using a Linux-based O.S as your host O.S, put the above entries in /etc/hosts
+
+# For the site's defined above, you can access them in your browser as follows: 
+# 
+# Silverstripe Test => http://test.localhost:8080
+# phpMyAdmin => http://phpmyadmin.localhost:8080
+# Server Default => http://server-default.localhost:8080
+#
+# Note: the 'Server Default' site displays PHP/System information.
+#
+# DO NOT ENABLE THE ABOVE SERVER DEFAULT SITE ON A PRODUCTION SERVER !!!
+# THAT WILL HAVE **SEVERE** SECURITY IMPLICATIONS !!!
+# THE SAME IDEALLY GOES FOR PHPMYADMIN AS WELL !!!
