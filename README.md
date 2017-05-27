@@ -32,7 +32,9 @@ Enter `vagrant up --provision` to begin creating and provisioning your machine. 
 Once your machine has been created and provisioned, put the following entries into your Windows hosts file (C:\Windows\System32\drivers\etc\hosts):
 
 127.0.0.1:8080                   localhost
+
 127.0.0.1:8080/phpmyadmin/       phpmyadmin.localhost
+
 127.0.0.1:8080                   server-default.localhost
 
 You can access the above sites in your browser like so:
@@ -47,8 +49,11 @@ You can also access the Silverstripe test project by visiting http://test.localh
 To transfer files from your host machine to the newly-created guest machine via SFTP (e.g. with FileZilla), use the following details:
 
 Host: 127.0.0.1
+
 Username: silverstripedev
+
 Password: silverstripe
+
 Port: 2222
 
 Default directory upon SFTP login is /var/www
