@@ -18,7 +18,7 @@ if [ ! -f "/root/provisioned" ]; then
     echo -e "Set system timezone to 'Pacific/Auckland'.\n"
     sudo timedatectl set-timezone Pacific/Auckland
 
-        DATE_STARTED=$(date)
+    DATE_STARTED=$(date)
     echo -e "SCRIPT INSTALL STARTED AT $DATE_STARTED.\n"
 
     echo -e "Truncate build log (/vagrant/vm_build.log).\n"
