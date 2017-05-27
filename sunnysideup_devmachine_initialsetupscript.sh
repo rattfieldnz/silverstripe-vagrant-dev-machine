@@ -212,6 +212,7 @@ if [ ! -f "/root/provisioned" ]; then
     if [ -f "/var/www/_ss_environment.php" ]; then 
         rm /var/www/_ss_environment.php /vagrant/vm_build.log 2>&1 
     fi
+    
     echo -e "Set-up Silverstripe default configuration file (/var/www/_ss_environment.php)."
     touch /var/www/_ss_environment.php
     DEVELOPER_EMAIL_ADDRESS=emailme@robertattfield.com
