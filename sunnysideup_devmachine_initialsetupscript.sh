@@ -58,7 +58,6 @@ if [ ! -f "/root/provisioned" ]; then
     sudo chown ubuntu:root /etc/php/5.6/apache2/php.ini
     sudo echo "date.timezone = Pacific/Auckland" >> /etc/php/5.6/apache2/php.ini
     sudo chown root:root /etc/php/5.6/apache2/php.ini
-
     sudo chown ubuntu:root /etc/php/5.6/cli/php.ini
     sudo echo "date.timezone = Pacific/Auckland" >> /etc/php/5.6/cli/php.ini
     sudo chown root:root /etc/php/5.6/cli/php.ini
@@ -198,8 +197,8 @@ if [ ! -f "/root/provisioned" ]; then
     
     echo -e "Remove Silverstripe test project, if it already exists.\n"
     if [ -d "/var/www/test" ]; then 
-    sudo chown -R ubuntu:ubuntu /var/www/test
-    sudo chmod -R 777 /var/www/test
+        sudo chown -R ubuntu:ubuntu /var/www/test
+        sudo chmod -R 777 /var/www/test
         rm -rf /var/www/test /vagrant/vm_build.log 2>&1 
     fi
 
