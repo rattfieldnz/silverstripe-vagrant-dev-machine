@@ -19,6 +19,8 @@ if [ ! -f "/root/provisioned" ]; then
     sudo timedatectl set-timezone Pacific/Auckland
 
     DATE_STARTED=$(date)
+    # Replace email with your own.
+    DEVELOPER_EMAIL_ADDRESS=youremail@example.com
     echo -e "SCRIPT INSTALL STARTED AT $DATE_STARTED.\n"
 
     echo -e "Truncate build log (/vagrant/vm_build.log).\n"
@@ -111,7 +113,7 @@ if [ ! -f "/root/provisioned" ]; then
             </IfModule>
             <FilesMatch ".+\.php$">
                 SetHandler application/x-httpd-php
-                </FilesMatch>
+            </FilesMatch>
             php_flag magic_quotes_gpc Off
             php_flag track_vars On
             php_flag register_globals Off
@@ -124,22 +126,22 @@ if [ ! -f "/root/provisioned" ]; then
 
         # Authorize for setup
         <Directory /usr/share/phpmyadmin/setup>
-        <IfModule mod_authz_core.c>
-            <IfModule mod_authn_file.c>
-                AuthType Basic
-                AuthName \"phpMyAdmin Setup\"
-                AuthUserFile /etc/phpmyadmin/htpasswd.setup
-            </IfModule>
-            Require valid-user
+            <IfModule mod_authz_core.c>
+                <IfModule mod_authn_file.c>
+                    AuthType Basic
+                    AuthName \"phpMyAdmin Setup\"
+                    AuthUserFile /etc/phpmyadmin/htpasswd.setup
+                </IfModule>
+                Require valid-user
             </IfModule>
         </Directory>
 
         # Disallow web access to directories that don't need it
         <Directory /usr/share/phpmyadmin/libraries>
-        Require all denied
+            Require all denied
         </Directory>
         <Directory /usr/share/phpmyadmin/setup/lib>
-        Require all denied
+            Require all denied
         </Directory>
     </VirtualHost>
 
@@ -148,8 +150,8 @@ if [ ! -f "/root/provisioned" ]; then
         ServerAlias server-default.localhost
         DocumentRoot /var/www/server-default
         <Directory /usr/share/phpmyadmin>
-        Options FollowSymLinks
-        DirectoryIndex index.php
+            Options FollowSymLinks
+            DirectoryIndex index.php
         </Directory>        
     </VirtualHost>
 
@@ -162,25 +164,25 @@ if [ ! -f "/root/provisioned" ]; then
         VirtualDocumentRoot /var/www/%-2+/
 
         <Directory />
-        Options FollowSymLinks
+            Options FollowSymLinks
             AllowOverride None
         </Directory>
 
         <Directory /var/www >
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-        Order allow,deny
-        allow from all
-        RewriteEngine On
-        RewriteBase /
-        SetEnv HTTP_MOD_REWRITE On
-        RewriteEngine On
-        RewriteCond %{REQUEST_URI} ^(.*)$
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteRule .* sapphire/main.php?url=%1 [QSA]
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride All
+            Order allow,deny
+            allow from all
+            RewriteEngine On
+            RewriteBase /
+            SetEnv HTTP_MOD_REWRITE On
+            RewriteEngine On
+            RewriteCond %{REQUEST_URI} ^(.*)$
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteRule .* sapphire/main.php?url=%1 [QSA]
 
-        RewriteCond %{REQUEST_URI} ^(.*)/sapphire/main.php$
-        RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteCond %{REQUEST_URI} ^(.*)/sapphire/main.php$
+            RewriteCond %{REQUEST_FILENAME} !-f
             RewriteRule .* framework/main.php?url=%1 [QSA]
         </Directory>
 
@@ -215,7 +217,7 @@ if [ ! -f "/root/provisioned" ]; then
     
     echo -e "Set-up Silverstripe default configuration file (/var/www/_ss_environment.php)."
     touch /var/www/_ss_environment.php
-    DEVELOPER_EMAIL_ADDRESS=emailme@robertattfield.com
+    
     echo "<?php
         define('SS_DATABASE_SERVER','localhost');
         define('SS_DATABASE_USERNAME','root');
