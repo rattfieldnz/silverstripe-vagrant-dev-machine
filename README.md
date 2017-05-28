@@ -2,11 +2,11 @@
 
 ## IMPORTANT: THIS SET-UP WAS CREATED ONLY FOR DEVELOPMENT, AND IS NOT SUITABLE FOR A PRODUCTION ENVIRONMENT!
 
-A Vagrant/VirtualBox dev machine set-up for Silverstripe development, using the popular [ubuntu/xenial](https://atlas.hashicorp.com/ubuntu/boxes/xenial64) Vagrant box.
+A [Vagrant](https://www.vagrantup.com/)/[VirtualBox](https://www.virtualbox.org/) dev machine set-up for Silverstripe development, using the popular [ubuntu/xenial](https://atlas.hashicorp.com/ubuntu/boxes/xenial64) Vagrant box.
 
 This set-up was created on a Windows 10 host machine, with VirtualBox v5.1.22, Vagrant v1.9.5, and Git Bash. If you have a different host O.S (e.g. a Linux distro), feel free to contribute :).
 
-Credit goes to Nicolaas Thiemen Francken from Sunny Side Up Web Development for an [excellent well-documented set-up](http://silverstripe-webdevelopment.com/tricks/creating-a-development-machine/), and also to the following GitHub gists:
+Credit goes to Nicolaas Thiemen Francken from [Sunny Side Up Web Development](http://sunnysideup.co.nz/) for an [excellent well-documented set-up](http://silverstripe-webdevelopment.com/tricks/creating-a-development-machine/), and also to the following GitHub gists:
 
 * https://gist.github.com/rrosiek/8190550
 * https://gist.github.com/asmerkin/df919a6a79b081512366
