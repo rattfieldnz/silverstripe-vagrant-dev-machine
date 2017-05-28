@@ -93,5 +93,5 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get -y install -y apache2
   # SHELL
-  config.vm.provision "shell", path: "sunnysideup_devmachine_initialsetupscript.sh"
+  config.vm.provision "shell", path: "setup.sh"
 end
