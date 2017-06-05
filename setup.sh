@@ -24,14 +24,19 @@ if [ ! -f "/root/provisioned" ]; then
     echo -e "SCRIPT INSTALL STARTED AT $DATE_STARTED.\n"
 
     echo -e "Truncate build log (/vagrant/vm_build.log).\n"
-    sudo echo "" > /vagrant/vm_build.log
+    sudo echo "" > /vagrant/vm_build.log 
 
     echo -e "Initialize SSH, if not already done.\n"
     sudo touch ~/.ssh/config
     sudo ssh-keygen -t rsa -b 4096 -C "[ubuntu]" >> /vagrant/vm_build.log 2>&1
 
     echo -e "Lets update our packages list, and currently installed packages...\n"
-    sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade >> /vagrant/vm_build.log 2>&1
+    sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade >> /vagrant/vm_build.log 2>&1 
+	
+	sudo echo "Installing recent version of Virtualbox Guest Additions\n" 
+	sudo apt-get -y install virtualbox-guest-dkms >> /vagrant/vm_build.log 2>&1
+	sudo usermod --append --groups vboxsf ubuntu >> /vagrant/vm_build.log 2>&1 
+	sudo apt autoremove --purge 2>&1 
 
     echo -e "Install base packages, if not already installed.\n"
     sudo apt-get -y install vim curl build-essential python-software-properties git zip unzip >> /vagrant/vm_build.log 2>&1
